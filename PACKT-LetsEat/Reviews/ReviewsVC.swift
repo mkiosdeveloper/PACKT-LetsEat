@@ -1,0 +1,106 @@
+//
+//  ReviewsVC.swift
+//  PACKT-LetsEat
+//
+//  Created by Warba on 03/07/2023.
+//
+
+import UIKit
+
+class ReviewsVC: UIViewController {
+
+    @IBOutlet var collectionView: UICollectionView!
+
+    var selectedRestaurantID: Int?
+
+    private var reviewItems: [ReviewItem] = []
+    private var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMM, yyyy"
+        return formatter
+    }()
+
+    //MARK: - View lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        initialize()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkReviews()
+    }
+}
+
+//MARK: - Extensions
+private extension ReviewsVC {
+    func initialize() {
+        setupCollectionView()
+    }
+
+    func setupCollectionView() {
+        let flow = UICollectionViewFlowLayout()
+        flow.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        flow.minimumInteritemSpacing = 0
+        flow.minimumLineSpacing = 8
+        flow.scrollDirection = .horizontal
+        collectionView.collectionViewLayout = flow
+    }
+    func checkReviews() {
+        let viewController = self.parent as? RestaurantDetailVC
+        if let restaurantID = viewController?.selectedRestaurant?.restaurantID {
+            reviewItems = CoreDataManager.shared.fetchReviews(by: restaurantID)
+            if !reviewItems.isEmpty {
+                collectionView.backgroundView = nil
+            } else {
+                let view = NoDataView(frame: CGRect(x: 0,
+                                                    y: 0,
+                                                    width: collectionView.frame.width,
+                                                    height: collectionView.frame.height))
+                view.set(title: "Reviews", desc: "There are no reviews currently")
+                collectionView.backgroundView = view
+            }
+        }
+        collectionView.reloadData()
+    }
+}
+
+extension ReviewsVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
+        reviewItems.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reviewCell", for: indexPath) as! ReviewCell
+        let reviewItem = reviewItems[indexPath.row]
+
+        cell.nameLabel.text = reviewItem.name
+        cell.titleLabel.text = reviewItem.title
+        cell.reviewLabel.text = reviewItem.customerReview
+
+        if let reviewItemDate = reviewItem.date {
+            cell.dateLabel.text = dateFormatter.string(from: reviewItemDate)
+        }
+        if let reviewItemRating = reviewItem.rating {
+            cell.ratingsView.rating = reviewItemRating
+        }
+
+        cell.layer.cornerRadius = 8
+        return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let edgeInset = 8.0
+        if reviewItems.count == 1 {
+            let cellWidth = collectionView.frame.size.width - (edgeInset * 2)
+            return CGSize(width: cellWidth, height: 200)
+        } else {
+            let cellWidth = collectionView.frame.size.width - (edgeInset * 3)
+            return CGSize(width: cellWidth, height: 200)
+        }
+    }
+}
