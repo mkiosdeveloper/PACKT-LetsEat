@@ -62,6 +62,8 @@
 		D298F2232A3F0E5A000A6E3C /* Boston.json in Resources */ = {isa = PBXBuildFile; fileRef = D298F2152A3F0E5A000A6E3C /* Boston.json */; };
 		D298F2242A3F0E5A000A6E3C /* New York.json in Resources */ = {isa = PBXBuildFile; fileRef = D298F2162A3F0E5A000A6E3C /* New York.json */; };
 		D298F2252A3F0E5A000A6E3C /* Houston.json in Resources */ = {isa = PBXBuildFile; fileRef = D298F2172A3F0E5A000A6E3C /* Houston.json */; };
+		D29AAD2B2A948E41009C8A3E /* CustomCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D29AAD2A2A948E41009C8A3E /* CustomCalloutView.xib */; };
+		D29AAD2D2A9491D6009C8A3E /* CustomCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29AAD2C2A9491D6009C8A3E /* CustomCalloutView.swift */; };
 		D2A3A9A42A3DF94A002054EC /* ExploreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A3A9A32A3DF94A002054EC /* ExploreCell.swift */; };
 		D2A3A9A92A3DFDCC002054EC /* LocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A3A9A82A3DFDCC002054EC /* LocationVC.swift */; };
 /* End PBXBuildFile section */
@@ -124,6 +126,8 @@
 		D298F2152A3F0E5A000A6E3C /* Boston.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Boston.json; sourceTree = "<group>"; };
 		D298F2162A3F0E5A000A6E3C /* New York.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "New York.json"; sourceTree = "<group>"; };
 		D298F2172A3F0E5A000A6E3C /* Houston.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Houston.json; sourceTree = "<group>"; };
+		D29AAD2A2A948E41009C8A3E /* CustomCalloutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCalloutView.xib; sourceTree = "<group>"; };
+		D29AAD2C2A9491D6009C8A3E /* CustomCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalloutView.swift; sourceTree = "<group>"; };
 		D2A3A9A32A3DF94A002054EC /* ExploreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCell.swift; sourceTree = "<group>"; };
 		D2A3A9A82A3DFDCC002054EC /* LocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -267,6 +271,7 @@
 			children = (
 				D298F1EF2A3ED0FE000A6E3C /* Model */,
 				D298F1F92A3EE6B2000A6E3C /* MapVC.swift */,
+				D29AAD292A948E09009C8A3E /* Custom Callout View */,
 			);
 			path = "Map Tab";
 			sourceTree = "<group>";
@@ -343,6 +348,15 @@
 				D298F2132A3F0E59000A6E3C /* San Francisco.json */,
 			);
 			name = JSON;
+			sourceTree = "<group>";
+		};
+		D29AAD292A948E09009C8A3E /* Custom Callout View */ = {
+			isa = PBXGroup;
+			children = (
+				D29AAD2A2A948E41009C8A3E /* CustomCalloutView.xib */,
+				D29AAD2C2A9491D6009C8A3E /* CustomCalloutView.swift */,
+			);
+			path = "Custom Callout View";
 			sourceTree = "<group>";
 		};
 		D2A3A9A52A3DFD6B002054EC /* Location */ = {
@@ -446,6 +460,7 @@
 				D298F21F2A3F0E5A000A6E3C /* Miami.json in Resources */,
 				D298F1FD2A3EF2DB000A6E3C /* RestaurantDetail.storyboard in Resources */,
 				D298F21C2A3F0E5A000A6E3C /* San Antonio.json in Resources */,
+				D29AAD2B2A948E41009C8A3E /* CustomCalloutView.xib in Resources */,
 				D298F2202A3F0E5A000A6E3C /* Aspen.json in Resources */,
 				D26839792A48344D00CAF3D4 /* FilterData.plist in Resources */,
 				D298F21E2A3F0E5A000A6E3C /* Las Vegas.json in Resources */,
@@ -495,6 +510,7 @@
 				D298F2082A3EF89A000A6E3C /* RestaurantDetailVC.swift in Sources */,
 				D298F1F82A3ED4CE000A6E3C /* DataManager.swift in Sources */,
 				D23097C72A3901730095FB86 /* RestaurantListVC.swift in Sources */,
+				D29AAD2D2A9491D6009C8A3E /* CustomCalloutView.swift in Sources */,
 				D2A3A9A42A3DF94A002054EC /* ExploreCell.swift in Sources */,
 				D26839772A48306D00CAF3D4 /* ReviewFormVC.swift in Sources */,
 			);
@@ -656,6 +672,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -684,6 +701,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

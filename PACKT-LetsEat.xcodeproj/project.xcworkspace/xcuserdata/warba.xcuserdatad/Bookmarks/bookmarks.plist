@@ -9,18 +9,12 @@
 			<dict>
 				<key>location-parameters</key>
 				<dict>
-					<key>EndingColumnNumber</key>
-					<string>8</string>
 					<key>EndingLineNumber</key>
-					<string>101</string>
-					<key>LocationEncoding</key>
-					<string>1</string>
-					<key>StartingColumnNumber</key>
-					<string>8</string>
+					<string>99</string>
 					<key>StartingLineNumber</key>
-					<string>101</string>
+					<string>99</string>
 					<key>Timestamp</key>
-					<string>710075562.574648</string>
+					<string>714221257.1184469</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -36,15 +30,16 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string></string>
+				<string>
+</string>
 				<key>leading</key>
 				<string>        }
 
 </string>
 				<key>trailing</key>
-				<string>
-        if let imageURL = restaurantItem.imageURL {
+				<string>        if let imageURL = restaurantItem.imageURL {
             Task {
+
 </string>
 			</dict>
 			<key>title</key>

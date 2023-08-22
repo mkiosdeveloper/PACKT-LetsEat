@@ -10,7 +10,6 @@ import UIKit
 import OSLog
 
 class RestaurantDetailVC: UITableViewController {
-    var logger = Logger(subsystem: "samplemkdev.PACKT-LetsEat", category: "RestaurantDetailVC")
     var selectedRestaurant: RestaurantItem?
 
     // MARK: - IBOutlets
@@ -48,7 +47,7 @@ class RestaurantDetailVC: UITableViewController {
                 case Segue.showPhotoFilter.rawValue:
                     showPhotoFilter(segue: segue)
                 default:
-                    logger.warning("Segue not added")
+                    print("Segue not added")
             }
         }
     }

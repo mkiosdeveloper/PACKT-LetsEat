@@ -10,7 +10,6 @@ import OSLog
 
 class RatingsView: UIControl {
 
-    private let logger = Logger(subsystem: "samplemkdev.PACKT-LetsEat", category: "RatingsView")
 
     private let filledStarImage = UIImage(resource: .filledStar)
     private let halfStarImage = UIImage(resource: .halfStar)
@@ -24,7 +23,6 @@ class RatingsView: UIControl {
     }
 
     override func draw(_ rect: CGRect) {
-        logger.trace("beginning of draw()")
         let context = UIGraphicsGetCurrentContext()
         context!.setFillColor(UIColor.clear.cgColor)
         context!.fill(rect)
@@ -49,7 +47,6 @@ class RatingsView: UIControl {
             }
             starToDraw.draw(in: frame)
         }
-        logger.trace("end of draw()")
     }
 
     override var canBecomeFirstResponder: Bool { true }
@@ -67,7 +64,6 @@ private extension RatingsView {
 
     //handling the touch events on the star ratingview controls
     func handle(with touch: UITouch) {
-        logger.trace("inside handle")
         let starRectWidth = self.bounds.size.width / Double(totalStars)
         let location = touch.location(in: self)
 
@@ -82,7 +78,6 @@ private extension RatingsView {
     }
 
     func updateRating(with newValue: Double) {
-        logger.trace("inside updateRating")
         if (self.rating != newValue && newValue >= 0 && newValue <= Double(totalStars)) {
             self.rating = newValue
         }

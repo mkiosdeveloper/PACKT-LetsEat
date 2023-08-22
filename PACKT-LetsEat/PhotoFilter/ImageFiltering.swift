@@ -18,7 +18,6 @@ extension ImageFiltering {
 
 
     func apply(filter: String, originalImage: UIImage) -> UIImage {
-        var logger = Logger()
 
         let initialCIImage = CIImage(image: originalImage,
                                      options: nil)
@@ -26,7 +25,7 @@ extension ImageFiltering {
 
         guard let ciFilter = CIFilter(name: filter)
         else {
-            logger.error("filter not found")
+            print("filter not found")
             return originalImage
         }
         ciFilter.setValue(initialCIImage, forKey: kCIInputImageKey)

@@ -11,7 +11,6 @@ import OSLog
 
 struct CoreDataManager {
 
-    let logger = Logger(subsystem: "samplemkdev.PACKT-LetsEat", category: "CoreDataManager")
     let container: NSPersistentContainer
 
     init() {
@@ -100,9 +99,10 @@ struct CoreDataManager {
             }
 
         } catch let error {
-            logger.error("""
+            print("""
         Error saving viewContext ⬇\n\(error.localizedDescription)\n
         """)
+
         }
     }
 }

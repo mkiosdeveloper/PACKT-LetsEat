@@ -10,7 +10,6 @@ import OSLog
 
 class ReviewFormVC: UITableViewController {
 
-    var logger = Logger(subsystem: "samplemkdev.PACKT-LetsEat", category: "ReviewFormVC")
 
     var selectedRestaurantID: Int?
 

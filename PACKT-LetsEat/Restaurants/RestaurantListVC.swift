@@ -10,7 +10,6 @@ import OSLog
 
 class RestaurantListVC: UIViewController {
 
-    let logger = Logger()
 
     private let manager = RestaurantDataManager()
 
@@ -32,7 +31,7 @@ class RestaurantListVC: UIViewController {
                 case Segue.showDetail.rawValue:
                     showRestaurantDetail(segue: segue)
                 default:
-                    logger.error("Segue not added")
+                    print("Segue not added")
             }
         }
     }
@@ -93,7 +92,6 @@ extension RestaurantListVC: UICollectionViewDelegate, UICollectionViewDataSource
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "restuarantCell", for: indexPath) as! RestaurantCell
         let restaurantItem = manager.restaurantItem(at: indexPath.row)
-        logger.debug("restaurantItem -> \(restaurantItem)")
         cell.titleLabel.text = restaurantItem.name
         if let cuisine = restaurantItem.subtitle {
             cell.cuisineLabel.text = cuisine

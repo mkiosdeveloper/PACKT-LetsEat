@@ -34,7 +34,7 @@ class ExploreVC: UIViewController {
                 showRestaurantList(segue: segue)
 
             default:
-                printContent("Segue not added")
+                print("Segue not added")
         }
     }
 
